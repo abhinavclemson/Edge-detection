@@ -24,9 +24,6 @@ Sobel is very common operator to detect edges of an image, which is an approxima
 Sobel operator is used for detecting edges by calculating vertical and horizontal gradients, for both of them two separate 1-D kernels, that makes total of four separate 1-D kernels.
 
 
-
-
-
 ##Steps in program
 1. An image input is given that is of **pgm** type, which is in greyscale and has pixel values between 0-255.
 2. Its values are copied in a 2-D array of float type.
@@ -36,11 +33,42 @@ Sobel operator is used for detecting edges by calculating vertical and horizonta
 6. The unnormalized arrays that are stored in dximg.pgm and dyimg.pgm are then scale between 0-255 pixel values and then converted from float type to unsigned integer of 8 bits type as pgm file supported pixel values between 0-255.
 7. After scaling the unnormalized arrays are normalized.
 8. These new arrays which are normalized are then stored into two new files ndximg.pgm and ndyimg.pgm are files that are normalized horizontal and vertical gradient edge images respectively.
-9. All output files are stored in /Output/ directory and input images are took from /Imaged
+9. All output files are stored in /Output/ directory and input images are took from /Images.
+10. Both horizontal and vertical gradients are combined, by adding absolute values(converting negative values to positive values) of horizontal and vertical gradients.
+11. combine.pgm is output as combined horizontal and vertical gradients.
+12. combine.ppm is output as combined gradients with RGB channels, the values of combine.pgm is weighted randomly between 0.10 and 0.90 and assigned to RGB channels to give a sparkly look to the image.
 
 
-## 
-## Lessons learned, identified interesting features of your program 
+
+## Instructions for the user
+1. Program is written in Jupyter notebook using python 3.x
+2. Original file is in .ipynb format to open it in Jupyter notebook.
+3. Additional, .py files are are also attached, if the user wants to open it in python interpreter.
+4. As the program is made on Macos, it uses forward slash for accessing directories, and would automatically detect the directory by using os.cwd for getting present working directory. Have to change forward slash to backward slash , if user operating on Windows machine. 
+5. backward slash used in ppm*_*write and pgm*_*write, specifically for the variable **file**.
+6. for windows user:
+
+           file= os.getcwd()+'/Output/'+file_name
+           can be changed to
+           file= os.getcwd()+'\Output\'+file_name
+7. Comments are provided in the files. Additionally, code snippets are also provided to show results of previous run.
 
 
-## Any special usage instructions 
+
+           
+## Dependencies
+* [Python 3.0.x](https://www.python.org/download/releases/3.0/)
+* [NumPy](https://numpy.org/)
+* [Pillow](https://pillow.readthedocs.io/en/stable/)
+
+
+## Technologies
+* [Jupyter notebook](https://jupyter.org/)
+* Can be used on **Idle**  too.
+
+
+
+Both Jupyter notebook file(.ipynb) and python file(.py) is provided.
+
+           
+
