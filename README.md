@@ -23,7 +23,8 @@ Sobel is very common operator to detect edges of an image, which is an approxima
 
 Sobel operator is used for detecting edges by calculating vertical and horizontal gradients, for both of them two separate 1-D kernels, that makes total of four separate 1-D kernels.
 
-## Steps in program
+
+##Steps in program
 1. An image input is given that is of **pgm** type, which is in greyscale and has pixel values between 0-255.
 2. Its values are copied in a 2-D array of float type.
 3. Applying two 1-D arrays as kernels on the 2-D array the image array is convoluted, giving output a horizontal or vertical gradient value, according to which gradient is requested.
