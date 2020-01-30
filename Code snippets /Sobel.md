@@ -231,8 +231,11 @@ class PPM2grey:
         random decimal weight ranges between 0.10 and 0.90, which is multiplied with the value got by combining
         x and y gradients.
     '''
-    def ppm_write(self , file_name):            
-        if  self.dxready and self.ready:
+    def ppm_write(self , file_name):   
+        #-----------------updated line------------------------------------
+        if  self.dxready and self.dyready:
+        #-----------------updated line------------------------------------
+
             buffer=np.zeros((self.height,self.width,3),dtype=np.uint8)
             
             for i in range(1,self.height-1):
@@ -313,7 +316,7 @@ class PPM2grey:
             
 if __name__=='__main__':
     #assigning file location to file
-    file='Images/baboon.pgm'
+    file='Images/bridge.pgm'
     
     #creating a PPM2grey() object to operate all image operations using it
     new_obj=PPM2grey()
@@ -348,9 +351,10 @@ if __name__=='__main__':
     combine_array=new_obj.pgm_gradientCombine() #returns array after combining both x and y gradient as array of float type 
     comb_norm=new_obj.pgm_normalize(combine_array) #return array after normalizing its value between 0-255
     
-    
-    new_obj.ppm_write(comb_norm,'combine.ppm') #outputs the file combining x and y gradient as ppm file type
-    
+    #-----------------updated line------------------------------------------------------------------
+    new_obj.ppm_write('combine.ppm') #outputs the file combining x and y gradient as ppm file type
+    #-----------------updated line------------------------------------------------------------------
+
     new_obj.pgm_write(comb_norm,'combine.pgm') #outputs the file combining  x and y gradient as pgm file type 
 
     
@@ -363,7 +367,7 @@ if __name__=='__main__':
 
 ```python
 #orignal image, User can change the file name, if they want to see other image
-Image.open('Images/baboon.pgm')
+Image.open('Images/bridge.pgm')
 ```
 
 
@@ -460,6 +464,11 @@ Image.open('Output/combine.ppm')
 ```python
 #for deleting all output files and reseting flags 
 new_obj.pgm_free()
+```
+
+
+```python
+
 ```
 
 
